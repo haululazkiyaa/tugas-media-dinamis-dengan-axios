@@ -15,7 +15,7 @@ const Media = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {data.length === 0 ? (
-          <p>Tidak ada media...</p>
+          <p className="dark:text-white">Tidak ada media...</p>
         ) : (
           data.map((item, index) => (
             <MediaCard key={item.title + index} {...item} />
@@ -24,7 +24,7 @@ const Media = () => {
       </div>
 
       <div className="text-center my-10">
-        {loading && <p>Memuat media...</p>}
+        {loading && <p className="dark:text-white">Memuat media...</p>}
 
         {!loading && !disableLoadMore && (
           <button

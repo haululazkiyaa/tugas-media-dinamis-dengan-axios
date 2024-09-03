@@ -14,13 +14,14 @@ const useFecthData = () => {
       .get(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=6`)
       .then((response) => {
         setData((prevData) => [...prevData, ...response.data]);
-        setLoading(false);
         if (response.data.length === 0) {
           setDisableLoadMore(true);
         }
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
         setLoading(false);
       });
   }, [page]);
